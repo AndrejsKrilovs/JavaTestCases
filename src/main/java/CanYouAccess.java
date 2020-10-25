@@ -8,10 +8,9 @@ public class CanYouAccess {
 
         try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in))){
             int num = Integer.parseInt(br.readLine().trim());
-            Object o;// Must be used to hold the reference of the instance of the class Solution.Inner.Private
+            Inner.Private o = new Inner.Private(); // Must be used to hold the reference of the instance of the class Solution.Inner.Private
 
-            o = new CanYouAccess.Inner().new Private();
-            String str = ((Inner.Private)o).powerof2(num);
+            String str = o.square(num);
             System.out.println(num + " is " + str);
             System.out.println("An instance of class: " + o.getClass().getCanonicalName() + " has been created");
 
@@ -22,9 +21,9 @@ public class CanYouAccess {
         }
     }//end of main
 
-    static class Inner{
-        private class Private{
-            private String powerof2(int num){
+    private static class Inner{
+        private static class Private{
+            private String square(int num){
                 return ((num&num-1)==0)?"power of 2":"not a power of 2";
             }
         }
@@ -32,9 +31,7 @@ public class CanYouAccess {
 }
 
 class DoNotTerminate { //This class prevents exit(0)
-
     public static class ExitTrappedException extends SecurityException {
-
         private static final long serialVersionUID = 1L;
     }
 
@@ -47,6 +44,7 @@ class DoNotTerminate { //This class prevents exit(0)
                 }
             }
         };
+
         System.setSecurityManager(securityManager);
     }
 }

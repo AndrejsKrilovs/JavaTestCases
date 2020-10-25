@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class JavaSHA256 {
     public static void main(String[] args) {
-        try(Scanner scanner = new Scanner( System.in );) {
+        try(Scanner scanner = new Scanner( System.in )) {
             String word = scanner.nextLine();
 
             MessageDigest messageDigest = MessageDigest.getInstance( "SHA-256" );

@@ -25,13 +25,11 @@ class Student implements Comparable<Student>{
             }
         } else if(cgpa > s.cgpa) {
             return -1;
-        }
-        else {
+        } else {
             return 1;
         }
     }
 }
-
 
 
 class Priorities{
@@ -42,7 +40,7 @@ class Priorities{
         for(String str : events) {
             String[] s = str.split("\\s");
             if(s.length > 1) {
-                pq.add(new Student(s[1],Double.parseDouble(s[2]),Integer.parseInt(s[3])));
+                pq.add(new Student(s[1], Double.parseDouble(s[2]), Integer.parseInt(s[3])));
             } else {
                 pq.poll();
             }
